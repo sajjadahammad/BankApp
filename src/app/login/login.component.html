@@ -1,0 +1,55 @@
+<h2>{{stat}}</h2>
+<div class="main">
+    <input type="checkbox" id="chk">
+    <div class="signup">
+    <div>
+        <label for="chk">Signup</label><br>
+        <input type="text" name="txt" placeholder="Username" id="uname"><br><br>
+        <input type="text" name="eml" placeholder="Account Number" id="accno"><br><br>
+        <input type="password" name="pswd" placeholder="Password" id="pswd"><br><br>
+        <button class="btn1" onclick="signUp()">SIGNUP</button>
+    </div>
+    </div><br>
+    <div class="login">
+    <div>
+        <label for="chk">Login</label><br>
+        <input type="text" name="usrnm" [placeholder]="ent" (change)="accountNumberChange($event)" id="acno"><br><br>
+        <input type="password" name="pswd" placeholder="password" (change)="passwordChange($event)" id="lpswd"><br><br>
+        <button class="btn2" (click)="login()" href="home.html">LOGIN</button>
+    </div>
+    </div>
+</div>
+<!-- <script>
+    function signUp(){
+        user={
+            id:uname.value,
+            accnum:accno.value,
+            passw:pswd.value
+        }
+        if(user.accnum in localStorage){
+            alert('Already exist')
+        } else{
+            localStorage.setItem(user.accnum,JSON.stringify(user))
+            alert('Account created successfully')
+
+        }
+    }
+    function login(){
+        key1=acno.value
+        key2=lpswd.value
+
+        if(key1 in localStorage){
+
+            user=JSON.parse(localStorage.getItem(key1))
+
+            if(user.passw==key2){
+                window.location="home.html"
+                alert('Login succesfull')
+            }else{
+                alert('Invalid acoount number and password')
+            }
+        }else{
+            alert('abcdef')
+        }
+    }
+</script> -->
