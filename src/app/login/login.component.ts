@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -65,11 +66,11 @@ regPswdChange(event:any){
 }
 
 signUp(){
-  var regUname = this.regUserName
-  var regAcntNumber = this.regAccountNumber
-  var regpswd =this.regPassword
-
-
+  var data={
+    acno:this.regAccountNumber,
+    uname:this.regUserName,
+    password:this.regPassword
+  }
   console.log("details",this.dataBase)
 
 }
