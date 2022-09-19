@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+// import { timeStamp } from 'console';
+>>>>>>> refs/remotes/origin/master
 
 @Component({
   selector: 'app-login',
@@ -67,11 +71,11 @@ export class LoginComponent implements OnInit {
 // }
 
 signUp(){
-  var regUname = this.regUserName
-  var regAcntNumber = this.regAccountNumber
-  var regpswd =this.regPassword
-
-
+  var data={
+    acno:this.regAccountNumber,
+    uname:this.regUserName,
+    password:this.regPassword
+  }
   console.log("details",this.dataBase)
 
 }
