@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-=======
-// import { timeStamp } from 'console';
->>>>>>> refs/remotes/origin/master
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-login',
@@ -16,14 +13,16 @@ export class LoginComponent implements OnInit {
   regUserName:any
   regAccountNumber:any
   regPassword:any
+  storagedb:any
+
   accountNumber:number=0
   passWord:string=''
   dataBase:any={
-   101:{acno:101,uname:"sajjad",password:1000,balance:50000}
-  }
+    101:{acno:101,uname:"sajjad",password:1000,balance:50000}
+   } 
 
-
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private db:DatabaseService) { }
 
   ngOnInit(): void {
   }
@@ -42,8 +41,8 @@ export class LoginComponent implements OnInit {
     var acno = this.accountNumber
     var pswd = this.passWord
 
-    if(acno in this.dataBase){
-      if(pswd ==this.dataBase[acno]["password"]){
+    if(acno in this.db.dataBase){
+      if(pswd ==this.db.dataBase[acno]["password"]){
         alert("login success")
         this.router.navigateByUrl('dashboard')
       }else{
@@ -71,13 +70,16 @@ export class LoginComponent implements OnInit {
 // }
 
 signUp(){
-  var data={
-    acno:this.regAccountNumber,
-    uname:this.regUserName,
-    password:this.regPassword
+  let data=this.db.dataBase
+  console.log("test",data)
+  const result = this.db.register(this.regAccountNumber,this.regUserName,this.regPassword,0)
+  console.log(data)
+  if(result){
+    alert("Registerd successfully")
+    this.router.navigateByUrl('')
+  }else{
+    alert("Registration failed")
   }
-  console.log("details",this.dataBase)
-
 }
 
 }

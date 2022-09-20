@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DatabaseService {
+  dataBase:any={
+    101:{acno:101,uname:"sajjad",password:1000,balance:50000}
+   } 
+
+  constructor() { }
+    
+  register(acno:any,name:any,pswd:any,balance:any){
+    if(acno in this.dataBase){
+      return false
+    }else{
+      this.dataBase[acno]={
+        accno:acno,
+        password:pswd,
+        uname:name,
+        balance:0
+      }
+      return true
+    }
+
+  }
+}
