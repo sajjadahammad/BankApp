@@ -38,21 +38,19 @@ export class LoginComponent implements OnInit {
   }
    
   login(){
-    var acno = this.accountNumber
-    var pswd = this.passWord
-
-    if(acno in this.db.dataBase){
-      if(pswd ==this.db.dataBase[acno]["password"]){
+    const results=this.db.signin(this.accountNumber,this.passWord)
+    // if(acno in this.dataBase){
+      if(results){
         alert("login success")
         this.router.navigateByUrl('dashboard')
       }else{
-        alert("Incorrect password Login failed")
+        alert("Incorrect password or username Login failed")
       }
     }
-   else{
-    alert("Incorrect Account Number")
-  }
-}
+  //  else{
+  //   alert("Incorrect Account Number")
+  // }
+ // }
 
 // userNameChange(event:any){
 //   this.regUserName=event.target.value
@@ -76,10 +74,9 @@ signUp(){
   console.log(data)
   if(result){
     alert("Registerd successfully")
-    this.router.navigateByUrl('')
+    // this.router.navigateByUrl('')
   }else{
     alert("Registration failed")
   }
 }
-
 }

@@ -1,3 +1,4 @@
+import { TmplAstRecursiveVisitor } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 
@@ -23,6 +24,18 @@ export class DatabaseService {
       }
       return true
     }
+  }
 
+  signin(accno:any,pswd:any){
+    if(accno in this.dataBase){
+      if(pswd==this.dataBase[accno]['password']){
+        console.log("Found")
+        return true
+      }else{
+        return false
+      }
+    }else{
+      return false
+    }
   }
 }
