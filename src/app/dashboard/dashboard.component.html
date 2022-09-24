@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+
+<div class="main">
+    <input type="checkbox" id="chk">
+    <div class="signup">
+    <form>
+        <label for="chk">Deposit</label><br>
+        <input type="text" name="eml" placeholder="Amount" [(ngModel)]="damnt" id="damnt"><br><br>
+        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="dacnt" id="accno"><br><br>
+        <input type="password" name="pswd" placeholder="Password" [(ngModel)]="dpswd" id="pswd"><br><br>
+        <button class="btn1" (click)="deposit()">Deposit</button>
+    </form>
+    </div><br>
+    <div class="login">
+    <form>
+        <label for="chk">Withdraw</label><br>
+        <input type="text" name="usrnm" placeholder="Amount" [(ngModel)]="wamnt" id="acno"><br><br>
+        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="wacnt" id="accno"><br><br>
+        <input type="password" name="pswd" placeholder="password" [(ngModel)]="wpswd" id="lpswd"><br><br>
+        <button class="btn2" (click)="withdraw()">Withdraw</button>
+    </form>
+    </div>
+</div>
