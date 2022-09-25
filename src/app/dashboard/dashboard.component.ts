@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     let datab = this.db.dataBase
     if(this.wacnt in datab){
       if(this.wpswd == datab[this.wacnt]['password']){
-        datab[this.wacnt]['balance']= parseInt(datab[this.wamnt]['balance'])-parseInt(this.wamnt)
+        datab[this.wacnt]['balance']= parseInt(datab[this.wacnt]['balance'])-parseInt(this.wamnt)
 
         console.log("BALANCE: ",datab[this.wacnt].password)
         alert('Balance Deducted')
