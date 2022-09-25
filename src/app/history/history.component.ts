@@ -18,9 +18,10 @@ export class HistoryComponent implements OnInit {
     console.log(datab)
     var datastore:any=localStorage.getItem('accountnumber')
     console.log("local: ",datastore)
-    this.acntnum = datab[datastore]['accno']
-    console.log(datab[datastore]['accno'])
-    this.name = datab[datastore]['name']
+    this.acntnum = datab[datastore]['acno']
+    console.log(datab[datastore]['acno'])
+    this.name = datab[datastore]['uname']
+    console.log("NAME: ",datab[datastore].uname)
     this.balance = datab[datastore]['balance']
   }
 
