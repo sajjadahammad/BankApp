@@ -17,6 +17,7 @@ h2{
    .signup {
        display: flex;
        justify-content: center;
+       padding-top: 10px;
    }
    
    .login {
@@ -26,14 +27,12 @@ h2{
        display: flex;
        justify-content: center;
        transition: .8s ease-in-out; 
-       padding-top: 15px;
+       padding-top: 20px;
        height:390px;
        border-radius: 10px;
        padding-top: 10px;
        background: rgb(15,18,149);
        background: linear-gradient(90deg, rgba(15,18,149,1) 19%, rgba(255,0,0,1) 100%); 
-   
-   
    }
    
    button,label {
