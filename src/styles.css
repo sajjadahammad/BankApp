@@ -7,3 +7,10 @@ body {
     margin: 10px auto;
     font-family: 'Jost', sans-serif;
 }
+
+app-navbar{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px
+}

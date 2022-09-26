@@ -1,12 +1,37 @@
+<app-navbar></app-navbar>
 <div class="signup">
     <div>
-        <label for="chk">Signup</label><br>
-        <!-- <input type="text" name="txt" placeholder="Username" [(ngModel)]="" id="uname"><br><br>
-        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="" id="accno"><br><br>
-        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="" id="accno"><br><br>
-        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="" id="accno"><br><br>
-        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="" id="accno"><br><br>
-        <button class="btn1" (click)="">SIGNUP</button> -->
+        <h3>Credit Card</h3><br>
+        <input type="text" name="txt" placeholder="Username" [(ngModel)]="name" id="uname"><br><br>
+        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="acno" id="accno"><br><br>
+        <input type="text" name="eml" placeholder="Pancard Number" [(ngModel)]="pan" id="accno"><br><br>
+        <input type="text" name="eml" placeholder="Aadhar Number" [(ngModel)]="aadhar" id="accno"><br><br>
+        <input type="text" name="eml" placeholder="Salary" [(ngModel)]="salary" id="accno"><br><br>
+        <button class="btn1" (click)="SubmitCreditCard()">Submit</button>
     </div>
     </div><br>
+    <div>
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Account Number</th>
+              <th scope="col">Pan</th>
+              <th scope="col">Aadhar</th>
+              <th scope="col">Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of Array">
+              <th scope="row">1</th>
+              <td>{{data.name}}</td>
+              <td>{{data.acno}}</td>
+              <td>{{data.pan}}</td>
+              <td>{{data.aadhar}}</td>
+              <td>{{data.salary}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 

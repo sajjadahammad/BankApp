@@ -13,14 +13,16 @@ export class CreditcardComponent implements OnInit {
   aadhar:any
   salary:any
   database:any={
-    
   }
+
+  Array:any=[]
   constructor() { }
 
   ngOnInit(): void {
   }
 
   SubmitCreditCard(){
+    if(this.salary>25000){
     this.database[this.acno]={
       name:this.name,
       acno:this.acno,
@@ -29,5 +31,8 @@ export class CreditcardComponent implements OnInit {
       salary:this.salary,
     }
     console.log("DATABASE",this.database)
-  }
+    this.Array.push(this.database[this.acno])
+   }else{
+    alert("Salary need to be greater than 25000")
+   } }
 }

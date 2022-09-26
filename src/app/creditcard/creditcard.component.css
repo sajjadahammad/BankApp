@@ -1,0 +1,36 @@
+.signup{
+    height: 420px;
+    width: 250px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding-left: 30px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    overflow: hidden;
+}
+
+input{
+    width: 210px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    height: 25px;
+    margin-top: 0px;
+}
+
+h3{
+    text-align: center;
+    margin-right: 30px;
+    color: aliceblue;
+}
+
+button{
+    margin-left: 60px;
+    margin-top: 10px;
+    color: brown;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 90px;
+}
