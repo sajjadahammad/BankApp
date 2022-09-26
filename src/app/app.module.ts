@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HistoryComponent } from './history/history.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CreditcardComponent } from './creditcard/creditcard.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     DashboardComponent,
     HistoryComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreditcardComponent
   ],
   imports: [
     BrowserModule,
