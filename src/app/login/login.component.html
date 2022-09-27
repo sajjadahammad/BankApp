@@ -4,10 +4,13 @@
     <div class="signup">
     <div>
         <label for="chk">Signup</label><br>
-        <input type="text" name="txt" placeholder="Username" [(ngModel)]="regUserName" id="uname"><br><br>
-        <input type="text" name="eml" placeholder="Account Number" [(ngModel)]="regAccountNumber" id="accno"><br><br>
-        <input type="password" name="pswd" placeholder="Password" [(ngModel)]="regPassword" id="pswd"><br><br>
+        <form [formGroup]="registerForm">
+        <input type="text" name="txt" placeholder="Username" formControlName="regUserName" id="uname"><br><br>
+        <div *ngIf="(this.registerForm.get('regUserName')?.errors)&&this.registerForm.get('regUserName')?.touched">Incorret Form</div>
+        <input type="text" name="eml" placeholder="Account Number" formControlName="regAccountNumber" id="accno"><br><br>
+        <input type="password" name="pswd" placeholder="Password" formControlName="regPassword" id="pswd"><br><br>
         <button class="btn1" (click)="signUp()">SIGNUP</button>
+        </form>
     </div>
     </div><br>
     <div class="login">

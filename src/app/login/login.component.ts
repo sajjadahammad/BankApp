@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 
@@ -10,10 +11,16 @@ import { DatabaseService } from '../services/database.service';
 export class LoginComponent implements OnInit {
   ent="Enter your account number"
   stat="Welcome to Axis Bank"
-  regUserName:any
-  regAccountNumber:any
-  regPassword:any
+  // regUserName
+  // regAccountNumber
+  // regPassword
   storagedb:any
+
+  registerForm = this.fb.group({
+    regUserName:['',[Validators.required,Validators.pattern('[a-zA-z]*')]],
+    regAccountNumber:[''],
+    regPassword:['']
+  })
 
   accountNumber:number=0
   passWord:string=''
@@ -22,7 +29,8 @@ export class LoginComponent implements OnInit {
    } 
 
   constructor(private router:Router,
-    private db:DatabaseService) { }
+              private db:DatabaseService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -67,16 +75,36 @@ export class LoginComponent implements OnInit {
 //  console.log("Regpswd: ",this.regPassword)
 // }
 
+//signup() in 2 way binding
+  // let data=this.db.dataBase
+  // console.log("test",data)
+  // const result = this.db.register(this.regAccountNumber,this.regUserName,this.regPassword,0)
+  // console.log(data)
+  // if(result){
+  //   alert("Registerd successfully")
+  //   // this.router.navigateByUrl('')
+  // }else{
+  //   alert("Registration failed")
+  // }
+
 signUp(){
-  let data=this.db.dataBase
-  console.log("test",data)
-  const result = this.db.register(this.regAccountNumber,this.regUserName,this.regPassword,0)
-  console.log(data)
-  if(result){
-    alert("Registerd successfully")
-    // this.router.navigateByUrl('')
+  console.log("Register Form",this.registerForm)
+  var name:any = this.registerForm.value.regUserName
+  var acno:any = this.registerForm.value.regAccountNumber
+  var pswd:any = this.registerForm.value.regPassword
+  
+  if(this.registerForm.valid){
+    console.log(this.db.dataBase)
+    let result = this.db.register(acno,name,pswd,0)
+    console.log("Data: ",name,acno,pswd)
+    if(result){
+      alert("Successfully Registered")
+      console.log(this.db.dataBase)
+    }else{
+      alert("Failed to Register")
+    }
   }else{
-    alert("Registration failed")
+    alert("Invalid")
   }
 }
 }
