@@ -17,43 +17,58 @@ export class LoginComponent implements OnInit {
   storagedb:any
 
   registerForm = this.fb.group({
-    regUserName:['',[Validators.required,Validators.pattern('[a-zA-z]*')]],
+    regUserName:['',[Validators.required,Validators.pattern('[a-z A-z]*')]],
     regAccountNumber:[''],
     regPassword:['']
   })
 
-  accountNumber:number=0
-  passWord:string=''
-  dataBase:any={
-    101:{acno:101,uname:"sajjad",password:1000,balance:50000}
-   } 
+  loginForm = this.fb.group({
+    accountNumber:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    passWord:[''],
+  })
+  // dataBase:any={
+  //   101:{acno:101,uname:"sajjad",password:1000,balance:50000}
+  //  } 
 
   constructor(private router:Router,
               private db:DatabaseService,
-              private fb:FormBuilder) { }
+              private fb:FormBuilder) { 
+                console.log(this.loginForm)
+              }
 
   ngOnInit(): void {
   }
 
-  accountNumberChange(event:any){
-    this.accountNumber=event.target.value
-    console.log("this.accountNumberChange",this.accountNumber)
-  }
+  // accountNumberChange(event:any){
+  //   this.accountNumber=event.target.value
+  //   console.log("this.accountNumberChange",this.accountNumber)
+  // }
 
-  passwordChange(event:any){
-    this.passWord=event.target.value
-    console.log("this.passWord",this.passWord)
-  }
+  // passwordChange(event:any){
+  //   this.passWord=event.target.value
+  //   console.log("this.passWord",this.passWord)
+  // }
    
   login(){
-    const results=this.db.signin(this.accountNumber,this.passWord)
-    // if(acno in this.dataBase){
-      if(results){
-        alert("login success")
-        this.router.navigateByUrl('dashboard')
-      }else{
-        alert("Incorrect password or username Login failed")
-      }
+    console.log("Login Form",this.loginForm)
+    var lacno:any=this.loginForm.value.accountNumber
+    var lpswd:any=this.loginForm.value.passWord
+     
+     if(this.loginForm.valid){
+      console.log(this.db.dataBase)
+      const results=this.db.signin(lacno,lpswd)
+      console.log("Data: ",lacno,lpswd)
+      // if(acno in this.dataBase){
+        if(results){
+          alert("login success")
+          this.router.navigateByUrl('dashboard')
+        }else{
+          alert("Incorrect password or username Login failed")
+        }  
+     }
+     else{
+      alert("invalid")
+     }
     }
   //  else{
   //   alert("Incorrect Account Number")

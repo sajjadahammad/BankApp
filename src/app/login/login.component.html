@@ -16,9 +16,12 @@
     <div class="login">
     <div>
         <label for="chk">Login</label><br>
-        <input type="text" name="usrnm" [placeholder]="ent" (change)="accountNumberChange($event)" id="acno"><br><br>
-        <input type="password" name="pswd" placeholder="password" (change)="passwordChange($event)" id="lpswd"><br><br>
+        <form [formGroup]="loginForm">
+        <input type="text" name="usrnm" [placeholder]="ent" formControlName="accountNumber" id="acno"><br><br>
+        <!-- <div *ngIf="(this.loginForm.get('accountNumber')?.errors)&&this.loginForm.get('accountNumber')?.touched" style="margin-bottom: 10px; color:aliceblue;">Only Numbers are allowed</div> -->
+        <input type="password" name="pswd" placeholder="password" formControlName="passWord" id="lpswd"><br><br>
         <button class="btn2" (click)="login()">LOGIN</button>
+        </form>
     </div>
     </div>
 </div>
