@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   wacnt:any
   wpswd:any
 
-  constructor(private db:DatabaseService,private router:Router) { }
+  constructor(private db:DatabaseService,private router:Router,private fb:FormsModule) { }
 
   ngOnInit(): void {
   }
