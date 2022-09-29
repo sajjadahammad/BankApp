@@ -10,7 +10,12 @@ export class DatabaseService {
     101:{acno:101,uname:"sajjad",password:1000,balance:50000}
    } 
 
-  constructor() { }
+  constructor() {
+   }
+
+   storedataDB(){
+    localStorage.setItem("storage db",JSON.stringify(this.dataBase))
+  }
     
   register(acno:any,name:any,pswd:any,balance:any){
     if(acno in this.dataBase){
@@ -22,6 +27,7 @@ export class DatabaseService {
         uname:name,
         balance:0
       }
+        this.storedataDB()
       return true
     }
   }
@@ -35,7 +41,9 @@ export class DatabaseService {
         return false
       }
     }else{
+      
       return false
+      
     }
   }
 }
