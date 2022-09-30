@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { HistoryComponent } from './history/history.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreditcardComponent } from './creditcard/creditcard.component';
+import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreditcardComponent } from './creditcard/creditcard.component';
     DashboardComponent,
     HistoryComponent,
     NavbarComponent,
-    CreditcardComponent
+    CreditcardComponent,
+    DeleteaccountComponent
   ],
   imports: [
     BrowserModule,
